@@ -55,9 +55,41 @@ To mitigate these blind spots, we propose the following fine-tuning strategy:
 
 **Recommended Dataset Size**: ~50,000 high-quality samples.
 
-## How to Run the Evaluation
-To reproduce these results, use the following code:
+## Local Setup & Usage
 
+To run the evaluation script locally, follow these steps:
+
+### 1. Prerequisites
+- **Python 3.8+**
+- **GPU (Recommended)**: This model (Falcon3-1B-Base) is small enough to run on a CPU, but a GPU (like an NVIDIA T4) is recommended for faster inference.
+
+### 2. Installation
+Clone the repository and install the required dependencies:
+```bash
+pip install torch transformers accelerate sentencepiece
+```
+*(Optional) If you want to use the Hugging Face upload script with a `.env` file:*
+```bash
+pip install python-dotenv huggingface_hub
+```
+
+### 3. Running the Evaluation
+Execute the evaluation script to see the model's performance and blind spots:
+```bash
+python evaluate_model.py
+```
+
+### 4. Uploading Results to Hugging Face
+If you wish to upload your version of the results:
+1. Create a `.env` file from `.env.example`.
+2. Add your Hugging Face write token to the `.env` file.
+3. Run the upload script:
+```bash
+python push_to_hf.py
+```
+
+## How to Run the Evaluation (Code Snippet)
+If you just want to load the model in a script:
 ```python
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
