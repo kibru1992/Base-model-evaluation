@@ -14,7 +14,7 @@ def push_to_huggingface(repo_id, token, local_dir):
 
     print(f"Creating/Verifying repository: {repo_id}...")
     try:
-        # We'll try creating it as a model repository first
+    
         create_repo(repo_id=repo_id, token=token, repo_type="model", exist_ok=True)
     except Exception as e:
         if "403" in str(e):
@@ -49,12 +49,10 @@ def push_to_huggingface(repo_id, token, local_dir):
     print(f"View your project here: https://huggingface.co/{repo_id}")
 
 if __name__ == "__main__":
-    # It is recommended to set these as environment variables or use a .env file
-    # If using a .env file, install python-dotenv and add: from dotenv import load_dotenv; load_dotenv()
     
     REPO_NAME = os.environ.get("HF_REPO_NAME", "evaluation-falcon3-1b-base")
     USER_NAME = os.environ.get("HF_USERNAME", "k4christ")
-    HF_TOKEN = os.environ.get("HF_TOKEN") # DO NOT hardcode this for GitHub
+    HF_TOKEN = os.environ.get("HF_TOKEN")
     
     local_directory = r"C:\Users\kibru\Desktop\fatima"
     repository_id = f"{USER_NAME}/{REPO_NAME}"
