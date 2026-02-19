@@ -1,0 +1,19 @@
+# Python stuff
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+build/
+dist/
+
+# Credentials & Sensitive Data
+.env
+*.token
+*.key
+hf_token.txt
+
+# OS stuff
+.DS_Store
+Thumbs.db
